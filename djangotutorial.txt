@@ -1,0 +1,46 @@
+Last login: Sat Jul 29 01:07:42 on ttys000
+Vanessas-MacBook-Air:~ vanehzhang$ cource myvenv/bin/activate
+-bash: cource: command not found
+Vanessas-MacBook-Air:~ vanehzhang$ cd django
+Vanessas-MacBook-Air:django vanehzhang$ source myvenv/bin/activate
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ django-admin startproject mysite .
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ ls
+manage.py	mysite		myvenv
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying sessions.0001_initial... OK
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ python manage.py runserver
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 29, 2017 - 11:54:44
+Django version 1.11.3, using settings 'mysite.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+[29/Jul/2017 11:55:13] "GET / HTTP/1.1" 200 1716
+Not Found: /favicon.ico
+[29/Jul/2017 11:55:13] "GET /favicon.ico HTTP/1.1" 404 1962
+Not Found: /favicon.ico
+[29/Jul/2017 11:55:14] "GET /favicon.ico HTTP/1.1" 404 1962
+^C(myvenv) Vanessas-MacBook-Air:django vanehzhang$ python manage.py startapp blog
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ ls
+blog		db.sqlite3	manage.py	mysite		myvenv
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ python manage.py makemigrations blog
+Migrations for 'blog':
+  blog/migrations/0001_initial.py
+    - Create model Post
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ 
