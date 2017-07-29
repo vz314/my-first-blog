@@ -1,0 +1,516 @@
+Last login: Sat Jul 29 01:07:42 on ttys000
+Vanessas-MacBook-Air:~ vanehzhang$ cource myvenv/bin/activate
+-bash: cource: command not found
+Vanessas-MacBook-Air:~ vanehzhang$ cd django
+Vanessas-MacBook-Air:django vanehzhang$ source myvenv/bin/activate
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ django-admin startproject mysite .
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ ls
+manage.py	mysite		myvenv
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying sessions.0001_initial... OK
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ python manage.py runserver
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 29, 2017 - 11:54:44
+Django version 1.11.3, using settings 'mysite.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+[29/Jul/2017 11:55:13] "GET / HTTP/1.1" 200 1716
+Not Found: /favicon.ico
+[29/Jul/2017 11:55:13] "GET /favicon.ico HTTP/1.1" 404 1962
+Not Found: /favicon.ico
+[29/Jul/2017 11:55:14] "GET /favicon.ico HTTP/1.1" 404 1962
+^C(myvenv) Vanessas-MacBook-Air:django vanehzhang$ python manage.py startapp blog
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ ls
+blog		db.sqlite3	manage.py	mysite		myvenv
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ python manage.py makemigrations blog
+Migrations for 'blog':
+  blog/migrations/0001_initial.py
+    - Create model Post
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ python manage.py migrate blog
+Operations to perform:
+  Apply all migrations: blog
+Running migrations:
+  Applying blog.0001_initial... OK
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ python manage.py runserver
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 29, 2017 - 12:09:55
+Django version 1.11.3, using settings 'mysite.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+[29/Jul/2017 12:10:04] "GET / HTTP/1.1" 200 1716
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 29, 2017 - 12:10:10
+Django version 1.11.3, using settings 'mysite.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+[29/Jul/2017 12:10:14] "GET / HTTP/1.1" 200 1716
+[29/Jul/2017 12:10:29] "GET /admin/ HTTP/1.1" 302 0
+[29/Jul/2017 12:10:30] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1654
+[29/Jul/2017 12:10:30] "GET /static/admin/css/base.css HTTP/1.1" 200 16066
+[29/Jul/2017 12:10:30] "GET /static/admin/css/login.css HTTP/1.1" 200 1203
+[29/Jul/2017 12:10:30] "GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+[29/Jul/2017 12:10:30] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+[29/Jul/2017 12:10:30] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" ((((m((((myvenv) Vanessas-MacBook-Air:django vanehzhang$ python manage.py createsuperuser
+Username (leave blank to use 'vanehzhang'): admin
+Email address: admin@admin.com
+Password: 
+Password (again): 
+Superuser created successfully.
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ python manage.py runserver
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 29, 2017 - 12:12:08
+Django version 1.11.3, using settings 'mysite.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+[29/Jul/2017 12:12:13] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1654
+[29/Jul/2017 12:12:17] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1654
+[29/Jul/2017 12:12:22] "GET /admin/ HTTP/1.1" 302 0
+[29/Jul/2017 12:12:22] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1654
+[29/Jul/2017 12:12:49] "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[29/Jul/2017 12:12:49] "GET /admin/ HTTP/1.1" 200 3401
+[29/Jul/2017 12:12:49] "GET /static/admin/css/dashboard.css HTTP/1.1" 200 412
+[29/Jul/2017 12:12:49] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[29/Jul/2017 12:12:49] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[29/Jul/2017 12:12:49] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+[29/Jul/2017 12:13:29] "GET /admin/blog/post/add/ HTTP/1.1" 200 7122
+[29/Jul/2017 12:13:29] "GET /static/admin/css/forms.css HTTP/1.1" 200 8173
+[29/Jul/2017 12:13:29] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[29/Jul/2017 12:13:29] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 6591
+[29/Jul/2017 12:13:29] "GET /static/admin/js/core.js HTTP/1.1" 200 7976
+[29/Jul/2017 12:13:29] "GET /static/admin/js/actions.js HTTP/1.1" 200 6501
+[29/Jul/2017 12:13:29] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 363
+[29/Jul/2017 12:13:29] "GET /static/admin/js/urlify.js HTTP/1.1" 200 8186
+[29/Jul/2017 12:13:29] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 258648
+[29/Jul/2017 12:13:29] "GET /static/admin/js/calendar.js HTTP/1.1" 200 7790
+[29/Jul/2017 12:13:29] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1538
+[29/Jul/2017 12:13:29] "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 20529
+[29/Jul/2017 12:13:29] "GET /static/admin/js/change_form.js HTTP/1.1" 200 712
+[29/Jul/2017 12:13:29] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 128820
+[29/Jul/2017 12:13:29] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 495
+[29/Jul/2017 12:13:29] "GET /static/admin/css/widgets.css HTTP/1.1" 200 10340
+[29/Jul/2017 12:13:29] "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+[29/Jul/2017 12:13:29] "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+[29/Jul/2017 15:36:26] "GET /static/admin/img/calendar-icons.svg HTTP/1.1" 200 1094
+[29/Jul/2017 15:37:15] "POST /admin/blog/post/add/ HTTP/1.1" 302 0
+[29/Jul/2017 15:37:15] "GET /admin/blog/post/add/ HTTP/1.1" 200 7330
+[29/Jul/2017 15:37:15] "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[29/Jul/2017 15:37:15] "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+[29/Jul/2017 15:37:15] "GET /static/admin/js/core.js HTTP/1.1" 304 0
+[29/Jul/2017 15:37:15] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+[29/Jul/2017 15:37:15] "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+[29/Jul/2017 15:37:15] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[29/Jul/2017 15:37:15] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+[29/Jul/2017 15:37:15] "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+[29/Jul/2017 15:37:15] "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+[29/Jul/2017 15:37:15] "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+[29/Jul/2017 15:37:15] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+[29/Jul/2017 15:37:15] "GET /static/admin/js/calendar.js HTTP/1.1" 304 0
+[29/Jul/2017 15:37:15] "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+[29/Jul/2017 15:37:15] "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 304 0
+[29/Jul/2017 15:37:15] "GET /static/admin/css/fonts.css HTTP/1.1" 304 0
+[29/Jul/2017 15:37:15] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+[29/Jul/2017 15:37:15] "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+[29/Jul/2017 15:37:15] "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+[29/Jul/2017 15:37:15] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+[29/Jul/2017 15:37:15] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+[29/Jul/2017 15:37:15] "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 304 0
+[29/Jul/2017 15:37:15] "GET /static/admin/img/icon-clock.svg HTTP/1.1" 304 0
+[29/Jul/2017 15:38:06] "POST /admin/blog/post/add/ HTTP/1.1" 200 12159
+[29/Jul/2017 15:38:06] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[29/Jul/2017 15:38:14] "POST /admin/blog/post/add/ HTTP/1.1" 302 0
+[29/Jul/2017 15:38:14] "GET /admin/blog/post/add/ HTTP/1.1" 200 7330
+[29/Jul/2017 15:38:14] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[29/Jul/2017 15:38:53] "POST /admin/blog/post/add/ HTTP/1.1" 302 0
+[29/Jul/2017 15:38:53] "GET /admin/blog/post/ HTTP/1.1" 200 4762
+[29/Jul/2017 15:38:53] "GET /static/admin/css/changelists.css HTTP/1.1" 200 6170
+[29/Jul/2017 15:38:53] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[29/Jul/2017 15:38:53] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+[29/Jul/2017 15:39:11] "GET /admin/blog/post/1/change/ HTTP/1.1" 200 24242
+[29/Jul/2017 15:39:11] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[29/Jul/2017 15:39:17] "GET /admin/blog/post/ HTTP/1.1" 200 4586
+[29/Jul/2017 15:39:17] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[29/Jul/2017 15:39:18] "GET /admin/blog/post/3/change/ HTTP/1.1" 200 17709
+[29/Jul/2017 15:39:18] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[29/Jul/2017 15:39:26] "POST /admin/blog/post/3/change/ HTTP/1.1" 302 0
+[29/Jul/2017 15:39:26] "GET /admin/blog/post/ HTTP/1.1" 200 4764
+[29/Jul/2017 15:39:26] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[29/Jul/2017 15:39:38] "GET /admin/blog/post/add/ HTTP/1.1" 200 7122
+[29/Jul/2017 15:39:38] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[29/Jul/2017 15:40:02] "POST /admin/blog/post/add/ HTTP/1.1" 302 0
+[29/Jul/2017 15:40:02] "GET /admin/blog/post/ HTTP/1.1" 200 4981
+[29/Jul/2017 15:40:02] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[29/Jul/2017 15:40:05] "GET /admin/blog/post/add/ HTTP/1.1" 200 7122
+[29/Jul/2017 15:40:05] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[29/Jul/2017 15:40:42] "POST /admin/blog/post/add/ HTTP/1.1" 302 0
+[29/Jul/2017 15:40:42] "GET /admin/blog/post/add/ HTTP/1.1" 200 7330
+[29/Jul/2017 15:40:42] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+[29/Jul/2017 15:41:15] "POST /admin/blog/post/add/ HTTP/1.1" 302 0
+[29/Jul/2017 15:41:15] "GET /admin/blog/post/ HTTP/1.1" 200 5419
+[29/Jul/2017 15:41:15] "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+^C(myvenv) Vanessas-MacBook-Air:django vanehzhang$ cd
+(myvenv) Vanessas-MacBook-Air:~ vanehzhang$ pwd
+/Users/vanehzhang
+(myvenv) Vanessas-MacBook-Air:~ vanehzhang$ cd django
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ pwd
+/Users/vanehzhang/django
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ git init
+Initialized empty Git repository in /Users/vanehzhang/django/.git/
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ git config --global user.name "Your Name"
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ git config --global user.name "VZ"
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ git config --global user.email vanehzhang@gmail.com
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ git status
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	.gitignore
+	blog/
+	djangotutorial.txt
+	manage.py
+	mysite/
+
+nothing added to commit but untracked files present (use "git add" to track)
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ git add --all .
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ git commit -m "vz314 app, first commit"
+[master (root-commit) 3b77849] vz314 app, first commit
+ 15 files changed, 299 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 blog/__init__.py
+ create mode 100644 blog/admin.py
+ create mode 100644 blog/apps.py
+ create mode 100644 blog/migrations/0001_initial.py
+ create mode 100644 blog/migrations/__init__.py
+ create mode 100644 blog/models.py
+ create mode 100644 blog/tests.py
+ create mode 100644 blog/views.py
+ create mode 100644 djangotutorial.txt
+ create mode 100755 manage.py
+ create mode 100644 mysite/__init__.py
+ create mode 100644 mysite/settings.py
+ create mode 100644 mysite/urls.py
+ create mode 100644 mysite/wsgi.py
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ git remote add orgin https://github.com/vz314/my-first-blog.git
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ git push -u origin master
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ pwd
+/Users/vanehzhang/django
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ git remote add origin https://github.com/vz314/my-first-blog.git
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ git push -u origin master
+Username for 'https://github.com': vz314
+Password for 'https://vz314@github.com': 
+Counting objects: 18, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (17/17), done.
+Writing objects: 100% (18/18), 4.87 KiB | 0 bytes/s, done.
+Total 18 (delta 0), reused 0 (delta 0)
+To https://github.com/vz314/my-first-blog.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ python manage.py runserver
+Performing system checks...
+
+Unhandled exception in thread started by <function check_errors.<locals>.wrapper at 0x1037cf400>
+Traceback (most recent call last):
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/utils/autoreload.py", line 227, in wrapper
+    fn(*args, **kwargs)
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/core/management/commands/runserver.py", line 125, in inner_run
+    self.check(display_num_errors=True)
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/core/management/base.py", line 359, in check
+    include_deployment_checks=include_deployment_checks,
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/core/management/base.py", line 346, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/core/checks/registry.py", line 81, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/core/checks/urls.py", line 16, in check_url_config
+    return check_resolver(resolver)
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/core/checks/urls.py", line 26, in check_resolver
+    return check_method()
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/urls/resolvers.py", line 254, in check
+    for pattern in self.url_patterns:
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/urls/resolvers.py", line 405, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/urls/resolvers.py", line 398, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 978, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 961, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 950, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 655, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 205, in _call_with_frames_removed
+  File "/Users/vanehzhang/django/mysite/urls.py", line 21, in <module>
+    url(r'',include('blog.urls')),
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/conf/urls/__init__.py", line 50, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 978, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 961, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 950, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 655, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 205, in _call_with_frames_removed
+  File "/Users/vanehzhang/django/blog/urls.py", line 1, in <module>
+    from django.conf.urls import urls
+ImportError: cannot import name 'urls'
+Performing system checks...
+
+Unhandled exception in thread started by <function check_errors.<locals>.wrapper at 0x1040cf400>
+Traceback (most recent call last):
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/utils/autoreload.py", line 227, in wrapper
+    fn(*args, **kwargs)
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/core/management/commands/runserver.py", line 125, in inner_run
+    self.check(display_num_errors=True)
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/core/management/base.py", line 359, in check
+    include_deployment_checks=include_deployment_checks,
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/core/management/base.py", line 346, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/core/checks/registry.py", line 81, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/core/checks/urls.py", line 16, in check_url_config
+    return check_resolver(resolver)
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/core/checks/urls.py", line 26, in check_resolver
+    return check_method()
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/urls/resolvers.py", line 254, in check
+    for pattern in self.url_patterns:
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/urls/resolvers.py", line 405, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/urls/resolvers.py", line 398, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 978, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 961, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 950, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 655, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 205, in _call_with_frames_removed
+  File "/Users/vanehzhang/django/mysite/urls.py", line 21, in <module>
+    url(r'',include('blog.urls')),
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/conf/urls/__init__.py", line 50, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 978, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 961, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 950, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 655, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 205, in _call_with_frames_removed
+  File "/Users/vanehzhang/django/blog/urls.py", line 5, in <module>
+    url(r'^$', views.post_list, name='post_list'),
+AttributeError: module 'blog.views' has no attribute 'post_list'
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 29, 2017 - 16:46:01
+Django version 1.11.3, using settings 'mysite.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/vanehzhang/django/blog/views.py", line 4, in post_list
+    return render(request, 'blog/post_list.html', {})
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/template/loader.py", line 25, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: blog/post_list.html
+[29/Jul/2017 16:46:04] "GET / HTTP/1.1" 500 74080
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/vanehzhang/django/blog/views.py", line 4, in post_list
+    return render(request, 'blog/post_list.html', {})
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/template/loader.py", line 25, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: blog/post_list.html
+[29/Jul/2017 16:48:50] "GET / HTTP/1.1" 500 74080
+^C(myvenv) Vanessas-MacBook-Air:django vanehzhang$ python manage.py runserver
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 29, 2017 - 16:49:16
+Django version 1.11.3, using settings 'mysite.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+[29/Jul/2017 16:49:22] "GET / HTTP/1.1" 200 0
+[29/Jul/2017 16:50:23] "GET / HTTP/1.1" 200 50
+[29/Jul/2017 16:51:27] "GET / HTTP/1.1" 200 112
+[29/Jul/2017 16:53:58] "GET / HTTP/1.1" 200 166
+[29/Jul/2017 16:57:21] "GET / HTTP/1.1" 200 836
+[29/Jul/2017 16:57:25] "GET / HTTP/1.1" 200 836
+[29/Jul/2017 16:57:27] "GET / HTTP/1.1" 200 836
+[29/Jul/2017 16:57:28] "GET / HTTP/1.1" 200 836
+^C(myvenv) Vanessas-MacBook-Air:django vanehzhang$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   blog/views.py
+	modified:   mysite/urls.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	blog/templates/
+	blog/urls.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ git add --all .
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   blog/templates/blog/post_list.html
+	new file:   blog/urls.py
+	modified:   blog/views.py
+	modified:   mysite/urls.py
+
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ git commit -m "changed the html for the site."
+[master 2f123ff] changed the html for the site.
+ 4 files changed, 32 insertions(+), 2 deletions(-)
+ create mode 100644 blog/templates/blog/post_list.html
+ create mode 100644 blog/urls.py
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ git push
+Counting objects: 10, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (10/10), 1.20 KiB | 0 bytes/s, done.
+Total 10 (delta 4), reused 0 (delta 0)
+remote: Resolving deltas: 100% (4/4), completed with 4 local objects.
+To https://github.com/vz314/my-first-blog.git
+   3b77849..2f123ff  master -> master
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ python manage.py shell
+Python 3.6.2 (v3.6.2:5fd33b5926, Jul 16 2017, 20:11:06) 
+[GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> Post.objects.all()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Post' is not defined
+>>> from blog.models import Post
+>>> post.objects.all()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'post' is not defined
+>>> Post.objects.all()
+<QuerySet [<Post: 20170628>, <Post: 20170629>, <Post: 20170630>, <Post: 20170701>, <Post: 20170702>, <Post: 20170704>]>
+>>> Post.objects.create(author=me, title='Sample title', text='Test')
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'me' is not defined
+>>> from django.contrib.auth.models import User
+>>> User.objects.all()
+<QuerySet [<User: admin>]>
+>>> me = User.objects.get(udername='admin')
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/db/models/query.py", line 371, in get
+    clone = self.filter(*args, **kwargs)
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/db/models/query.py", line 784, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/db/models/query.py", line 802, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/db/models/sql/query.py", line 1250, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/db/models/sql/query.py", line 1276, in _add_q
+    allow_joins=allow_joins, split_subq=split_subq,
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/db/models/sql/query.py", line 1154, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/db/models/sql/query.py", line 1034, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "/Users/vanehzhang/django/myvenv/lib/python3.6/site-packages/django/db/models/sql/query.py", line 1352, in names_to_path
+    "Choices are: %s" % (name, ", ".join(available)))
+django.core.exceptions.FieldError: Cannot resolve keyword 'udername' into field. Choices are: date_joined, email, first_name, groups, id, is_active, is_staff, is_superuser, last_login, last_name, logentry, password, post, user_permissions, username
+>>> Post.objects.create(author=me, title='Sample title', text='Test')
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'me' is not defined
+>>> me = User.objects.get(username='admin')
+>>> Post.objects.create(author=me, title='Sample title', text='Test')
+<Post: Sample title>
+>>> Post.objects.all()
+<QuerySet [<Post: 20170628>, <Post: 20170629>, <Post: 20170630>, <Post: 20170701>, <Post: 20170702>, <Post: 20170704>, <Post: Sample title>]>
+>>> Post.objects.filter(author=me)
+<QuerySet [<Post: 20170628>, <Post: 20170629>, <Post: 20170630>, <Post: 20170701>, <Post: 20170702>, <Post: 20170704>, <Post: Sample title>]>
+>>> Post.objects.filter(title__contains='201707')
+<QuerySet [<Post: 20170701>, <Post: 20170702>, <Post: 20170704>]>
+>>> from django.utils import timezone
+>>> Post.objects.filter(published_date__lte=timezone.now())
+<QuerySet [<Post: 20170628>, <Post: 20170629>, <Post: 20170704>]>
+>>> post = Post.objects.get(title="Sample title")
+>>> post.publish()
+>>> Post.objects.filter(published_date__lte=timezone.now())
+<QuerySet [<Post: 20170628>, <Post: 20170629>, <Post: 20170704>, <Post: Sample title>]>
+>>> Post.objects.order_by('-created_date')
+<QuerySet [<Post: Sample title>, <Post: 20170704>, <Post: 20170702>, <Post: 20170701>, <Post: 20170630>, <Post: 20170629>, <Post: 20170628>]>
+>>> Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+<QuerySet [<Post: 20170628>, <Post: 20170629>, <Post: 20170704>, <Post: Sample title>]>
+>>> exit()
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ $
+-bash: $: command not found
+(myvenv) Vanessas-MacBook-Air:django vanehzhang$ 
